@@ -1,2 +1,10 @@
-# Movie search and watch 
-Creating a project with a group for the first time
+# Whatcha watchin?
+Helps people find movies to watch and give them relevant information
+
+
+
+## Credits
+Jared Banks
+Inez Carrillo
+Camrin Davis
+Jessica Jones
