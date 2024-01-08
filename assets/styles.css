@@ -1,0 +1,17 @@
+:root {
+    --darkColor: black;
+    --highlightColor: #bd0000;
+    --hoverColor: #808588;
+    --lightColor: #fff;
+}
+
+body {
+    font-family: 'Thasadith', sans-serif;
+}
+
+h1 {
+    color: var(--highlightColor);
+    background-color: var(--darkColor);
+    font-family: 'Monoton', sans-serif;
+    font-size: 48px;
+}
