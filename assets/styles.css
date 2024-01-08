@@ -10,22 +10,28 @@ body {
 }
 
 h1 {
-    padding: 10px;
+    padding: 20px;
     display: inline-block;
     color: var(--highlightColor);
     background-color: var(--darkColor);
     font-family: 'Monoton', sans-serif;
-    font-size: 48px;
+    font-size: 72px;
 }
 
-h1 button {
+.searchBar {
+    border: solid 3px black;
+}
+
+.searchBtn {
     border: solid 1px black;
     border-radius: 8px;
-    color: var(--darkColor);
+    color: black;
     background-color: var(--lightColor);
+    padding: 0 12px;
+
 }
 
-h1 button:hover {
+.searchBtn:hover {
     color: var(--lightColor);
     background-color: var(--darkColor);
 }
