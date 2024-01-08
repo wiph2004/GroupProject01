@@ -17,3 +17,15 @@ h1 {
     font-family: 'Monoton', sans-serif;
     font-size: 48px;
 }
+
+h1 button {
+    border: solid 1px black;
+    border-radius: 8px;
+    color: var(--darkColor);
+    background-color: var(--lightColor);
+}
+
+h1 button:hover {
+    color: var(--lightColor);
+    background-color: var(--darkColor);
+}
