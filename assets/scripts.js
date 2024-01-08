@@ -8,3 +8,4 @@
 //http://www.omdbapi.com/?i=tt3896198&apikey=710f7abf
 
 //Rotten tomatoes needs more research and requires approval from them for a link
+var searchBtn = document.querySelectorAll('#searchBtn');
