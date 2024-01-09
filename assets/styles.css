@@ -12,14 +12,13 @@ body {
 h1 {
     padding: 20px;
     display: inline-block;
-    color: var(--highlightColor);
-    background-color: var(--darkColor);
+    color: var(--darkColor);
     font-family: 'Monoton', sans-serif;
-    font-size: 72px;
+    font-size: xx-large;
 }
 
-.searchBar {
-    border: solid 3px black;
+#searchBar {
+    border: solid 1px black;
 }
 
 .searchBtn {
