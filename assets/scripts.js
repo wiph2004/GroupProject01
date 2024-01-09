@@ -12,6 +12,13 @@ var searchBtn = document.querySelectorAll('#searchBtn');
 
 
 
+searchBtn = addEventListener("click" , respondClick)
+
+function respondClick() {
+    document.getElementById("click").innerHTML;
+}
+
+
 
 
 function searchTrailer(event) {
@@ -33,4 +40,5 @@ function searchTrailer(event) {
         $("embed").src = source;
          })
 }
+
 
