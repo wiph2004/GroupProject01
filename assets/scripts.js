@@ -8,11 +8,31 @@
 //http://www.omdbapi.com/?i=tt3896198&apikey=710f7abf
 
 //Rotten tomatoes needs more research and requires approval from them for a link
-var searchBtn = document.querySelectorAll('#searchBtn');
 
+
+var searchBtn = document.querySelectorAll('#searchBtn');
+var searchBar = document.querySelectorAll('#searchBar');
 
 searchBtn = addEventListener("click" , respondClick)
 
 function respondClick() {
     document.getElementById("click").innerHTML;
+    var newText = searchBar.value;
+    console.log(newText);
 }
+
+
+function extractContent(s, space) {
+    var span= document.createElement('span');
+    span.innerHTML= s;
+    if(space) {
+      var children= span.querySelectorAll('*');
+      for(var i = 0 ; i < children.length ; i++) {
+        if(children[i].textContent)
+          children[i].textContent+= ' ';
+        else
+          children[i].innerText+= ' ';
+      }
+    }
+    return [span.textContent || span.innerText].toString().replace(/ +/g,' ');
+  };
