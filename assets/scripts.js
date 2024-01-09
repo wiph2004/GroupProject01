@@ -7,18 +7,8 @@
 //OMDB api link
 //http://www.omdbapi.com/?i=tt3896198&apikey=710f7abf
 
-
-
-
-
-
-
-
-
-
-
-
-
+//Rotten tomatoes needs more research and requires approval from them for a link
+var searchBtn = document.querySelectorAll('#searchBtn');
 
 
 
@@ -43,3 +33,4 @@ function searchTrailer(event) {
         $("embed").src = source;
          })
 }
+
