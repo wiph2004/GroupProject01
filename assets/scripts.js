@@ -1,5 +1,5 @@
 //Youtube api link
-//https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=the%20hunt%20for%20red%20october&type=video&key=YOUR_API_KEY&videoType=movie&channelId=UCx8ultakVd3KEaLdliOcc9Q
+//https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=the%20hunt%20for%20red%20october&type=video&key=AIzaSyAcMm3fkVwE7lzrz_RxpYrVgltx__OS8T4&videoType=movie&channelId=UCx8ultakVd3KEaLdliOcc9Q
 
 //Wikipedia api link - requires some additional reading for all the rest of it
 //https://en.wikipedia.org/w/api.php
@@ -11,6 +11,9 @@
 
 var searchBtn = document.querySelectorAll('#searchBtn');
 var searchBar = document.querySelectorAll('#searchBar');
+var youTubeApi = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=the%20hunt%20for%20red%20october&type=video&key=AIzaSyAcMm3fkVwE7lzrz_RxpYrVgltx__OS8T4&videoType=movie&channelId=UCx8ultakVd3KEaLdliOcc9Q";
+var wikiApi = "https://en.wikipedia.org/w/api.php";
+var omdbApi = "http://www.omdbapi.com/?i=tt3896198&apikey=710f7abf";
 
 searchBtn = addEventListener("click", respondClick)
 
@@ -121,6 +124,15 @@ function searchTrailer(event) {
             $("embed").src = source;
         })
 }
+
+//fetch (youTubeApi)
+    //.then(response => {
+        //if (response.ok) {
+            //console.log("Success")
+        //} else {
+            //console.log("Not Successful")
+        //}
+    //});
 
 
 function createButton() {
