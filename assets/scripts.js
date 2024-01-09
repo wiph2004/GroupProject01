@@ -11,8 +11,34 @@
 var searchBtn = document.querySelectorAll('#searchBtn');
 
 
+
 searchBtn = addEventListener("click" , respondClick)
 
 function respondClick() {
     document.getElementById("click").innerHTML;
 }
+
+
+
+
+function searchTrailer(event) {
+    event.preventDefault();
+
+    var queryString = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=" + searchResults + "trailer&type=video&key=AIzaSyAcMm3fkVwE7lzrz_RxpYrVgltx__OS8T4 &videoType=movie";
+
+    fetch(queryString)
+        .then (function (response){
+            if(response.ok){
+                return response.json();
+            }
+         })
+         .then (function (data) {
+            console.log(data);
+
+        var videoSource = data[0].id;
+        var source = "https://youtu.be/" + videoSource;
+        $("embed").src = source;
+         })
+}
+
+

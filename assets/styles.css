@@ -1,0 +1,31 @@
+:root {
+    --darkColor: black;
+    --highlightColor: #bd0000;
+    --hoverColor: #808588;
+    --lightColor: #fff;
+}
+
+body {
+    font-family: 'Thasadith', sans-serif;
+}
+
+h1 {
+    padding: 10px;
+    display: inline-block;
+    color: var(--highlightColor);
+    background-color: var(--darkColor);
+    font-family: 'Monoton', sans-serif;
+    font-size: 48px;
+}
+
+h1 button {
+    border: solid 1px black;
+    border-radius: 8px;
+    color: var(--darkColor);
+    background-color: var(--lightColor);
+}
+
+h1 button:hover {
+    color: var(--lightColor);
+    background-color: var(--darkColor);
+}
