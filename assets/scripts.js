@@ -9,3 +9,10 @@
 
 //Rotten tomatoes needs more research and requires approval from them for a link
 var searchBtn = document.querySelectorAll('#searchBtn');
+
+
+searchBtn = addEventListener("click" , respondClick)
+
+function respondClick() {
+    document.getElementById("click").innerHTML;
+}
