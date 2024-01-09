@@ -7,9 +7,97 @@
 //OMDB api link
 //http://www.omdbapi.com/?i=tt3896198&apikey=710f7abf
 
-//Rotten tomatoes needs more research and requires approval from them for a link
-var searchBtn = document.querySelectorAll('#searchBtn');
 
+
+var searchBtn = document.querySelectorAll('#searchBtn');
+var searchBar = document.querySelectorAll('#searchBar');
+
+searchBtn = addEventListener("click", respondClick)
+
+function respondClick() {
+    document.getElementById("click").innerHTML;
+    var newText = searchBar.value;
+    console.log(newText);
+}
+
+
+function extractContent(s, space) {
+    var span = document.createElement('span');
+    span.innerHTML = s;
+    if (space) {
+        var children = span.querySelectorAll('*');
+        for (var i = 0; i < children.length; i++) {
+            if (children[i].textContent)
+                children[i].textContent += ' ';
+            else
+                children[i].innerText += ' ';
+        }
+    }
+    return [span.textContent || span.innerText].toString().replace(/ +/g, ' ');
+};
+
+
+var previousSearches = $("#previous-searches");
+
+
+var storedSearches = [
+    {
+        movie: " ",
+        trailer: "",
+        movieLoc: "",
+        wiki: "",
+            score: "",
+            synopsis: "",
+        OMDB: "",
+            actor1: "",
+            actor2: ""
+    },
+    {
+        movie: " ",
+        trailer: "",
+        movieLoc: "",
+        wiki: "",
+            score: "",
+            synopsis: "",
+        OMDB: "",
+            actor1: "",
+            actor2: ""
+    },
+    {
+        movie: " ",
+        trailer: "",
+        movieLoc: "",
+        wiki: "",
+            score: "",
+            synopsis: "",
+        OMDB: "",
+            actor1: "",
+            actor2: ""
+    },
+    {
+        movie: " ",
+        trailer: "",
+        movieLoc: "",
+        wiki: "",
+            score: "",
+            synopsis: "",
+        OMDB: "",
+            actor1: "",
+            actor2: ""
+    },
+    {
+        movie: " ",
+        trailer: "",
+        movieLoc: "",
+        wiki: "",
+            score: "",
+            synopsis: "",
+        OMDB: "",
+            actor1: "",
+            actor2: ""
+    },
+
+];
 
 
 
@@ -20,17 +108,79 @@ function searchTrailer(event) {
     var queryString = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=" + searchResults + "trailer&type=video&key=AIzaSyAcMm3fkVwE7lzrz_RxpYrVgltx__OS8T4 &videoType=movie";
 
     fetch(queryString)
-        .then (function (response){
-            if(response.ok){
+        .then(function (response) {
+            if (response.ok) {
                 return response.json();
             }
-         })
-         .then (function (data) {
+        })
+        .then(function (data) {
             console.log(data);
 
-        var videoSource = data[0].id;
-        var source = "https://youtu.be/" + videoSource;
-        $("embed").src = source;
-         })
+            var videoSource = data[0].id;
+            var source = "https://youtu.be/" + videoSource;
+            $("embed").src = source;
+        })
 }
+
+
+function createButton() {
+    if (JSON.parse(localStorage.getItem("storedSearches") !== null)) {
+        storedSearches = JSON.parse(localStorage.getItem("storedSearches"));
+        var movieObj = {
+            movie: searchResults,
+            trailer: source,
+            movieLoc: movieSource,
+            wiki: wikiSource,
+            score: score,
+            synopsis: wikiSynopsis,
+            OMDB: omdbSource,
+            actor1: actor1Source,
+            actor2: actor2Source,
+        }
+
+        storedSearches.splice(0, 0, movieObj);
+
+        for (let x = 0; x < array.length; index++) {
+            if (storedSearches[x] === null) {
+                break;
+            }
+            var buttonName = storedSearches[x].movie;
+            var newButton = document.createElement("button").attr('name', buttonName);
+            newButton.textContent = buttonName;
+            previousSearches.appendChild(newButton);
+        }
+        
+    }
+
+    else{
+
+        var movieObj = {
+        movie: searchResults,
+        trailer: source,
+        movieLoc: movieSource,
+        wiki: wikiSource,
+        score: score,
+        synopsis: wikiSynopsis,
+        OMDB: omdbSource,
+        actor1: actor1Source,
+        actor2: actor2Source,
+    }
+
+    storedSearches.splice(0, 0, movieObj);
+
+    for (let x = 0; x < array.length; index++) {
+        if (storedSearches[x] === null) {
+            break;
+        }
+        var buttonName = storedSearches[x].movie;
+        var newButton = document.createElement("button").attr('name', buttonName);
+        newButton.textContent = buttonName;
+        previousSearches.appendChild(newButton);
+    }
+        localStorage.setItem("storedSearches", JSON.stringify(storedSearches));
+}}
+
+var searchBtn = document.querySelectorAll('#searchBtn');
+
+
 
