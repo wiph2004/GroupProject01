@@ -9,20 +9,30 @@
 
 
 
-var searchBtn = document.querySelector('#searchBtn');
-var searchBar = document.querySelector('#searchBar');
+
+var searchBtn = $('#searchBtn');
+var searchBar = document.querySelectorAll('#searchBar');
+var searchResults = document.querySelector("#searchBar").value;
+var previousSearches = $("#previous-searches");
+
+searchBtn.on("click", respondClick)
+
 var youTubeApi = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=&type=video&key=AIzaSyAcMm3fkVwE7lzrz_RxpYrVgltx__OS8T4&videoType=movie&channelId=UCx8ultakVd3KEaLdliOcc9Q";
 var wikiApi = "https://en.wikipedia.org/w/api.php";
 var omdbApi = "http://www.omdbapi.com/?i=tt3896198&apikey=710f7abf";
 
 
 //event listener for search button
-searchBtn = addEventListener("click", respondClick)
+
+
 
 function respondClick() {
-    document.getElementById("click").innerHTML;
-    var newText = searchBar.value;
-    console.log(newText);
+    // document.getElementById("#searchBar").value;
+    // var newText = searchBar.value;
+    searchResults = document.querySelector("#searchBar").value;
+    if (searchResults !== null){
+    console.log(searchResults);
+    }
 }
 
 //extract info from input 
@@ -40,10 +50,6 @@ function extractContent(s, space) {
     }
     return [span.textContent || span.innerText].toString().replace(/ +/g, ' ');
 };
-
-
-var previousSearches = $("#previous-searches");
-
 
 var storedSearches = [
     {
@@ -104,6 +110,14 @@ var storedSearches = [
 
 ];
 
+window.onload = function recalSearch(){
+    if (JSON.parse(localStorage.getItem("storedSearches") !== null)){
+        createButton();
+    }
+
+
+}
+
 
 function searchTrailer(event) {
     event.preventDefault();
@@ -125,10 +139,25 @@ function searchTrailer(event) {
         })
 }
 
+function createButton(){
+    for (let x = 0; x < storedSearches.length; index++) {
+        if (storedSearches[x] === null) {
+            break;
+        }
+        var buttonName = storedSearches[x].movie;
+        var newButton = document.createElement("button").attr('name', buttonName);
+        newButton.textContent = buttonName;
+        previousSearches.appendChild(newButton);
+    }
+}
+
 
 
 
 function createButton() {
+
+function createNewButton() {
+
     if (JSON.parse(localStorage.getItem("storedSearches") !== null)) {
         storedSearches = JSON.parse(localStorage.getItem("storedSearches"));
         var movieObj = {
@@ -173,7 +202,7 @@ function createButton() {
 
     storedSearches.splice(0, 0, movieObj);
 
-    for (let x = 0; x < array.length; index++) {
+    for (let x = 0; x < storedSearches.length; index++) {
         if (storedSearches[x] === null) {
             break;
         }
