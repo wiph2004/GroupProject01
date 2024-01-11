@@ -17,6 +17,7 @@ searchBtn = addEventListener("click", respondClick)
 function respondClick() {
     document.getElementById("click").innerHTML;
     var newText = searchBar.value;
+    titleSplash.style.display = "none";
     console.log(newText);
 }
 

@@ -19,6 +19,8 @@ h1 {
 
 #searchBar {
     border: solid 1px black;
+    padding: 0 12px;
+    border-radius: 8px;
 }
 
 .searchBtn {
@@ -28,6 +30,14 @@ h1 {
     background-color: var(--lightColor);
     padding: 0 12px;
 
+}
+
+.largeHuge {
+    font-size: 160px;
+    color: var(--highlightColor);
+    background-color: var(--darkColor);
+    font-family: 'Monoton', sans-serif;
+    text-align: center;
 }
 
 .searchBtn:hover {
