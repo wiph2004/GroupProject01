@@ -17,8 +17,14 @@ h1 {
     font-size: xx-large;
 }
 
+.box {
+    border-radius: 12px;
+}
+
 #searchBar {
     border: solid 1px black;
+    padding: 0 12px;
+    border-radius: 8px;
 }
 
 .searchBtn {
@@ -27,7 +33,15 @@ h1 {
     color: black;
     background-color: var(--lightColor);
     padding: 0 12px;
+}
 
+.largeHuge {
+    font-size: 160px;
+    color: var(--highlightColor);
+    background-color: var(--darkColor);
+    font-family: 'Monoton', sans-serif;
+    text-align: center;
+    border-radius: 12px;
 }
 
 .searchBtn:hover {
