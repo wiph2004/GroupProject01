@@ -64,13 +64,5 @@ function searchTrailer(event) {
         })
 }
 
-//fetch (youTubeApi)
-    //.then(response => {
-        //if (response.ok) {
-            //console.log("Success")
-        //} else {
-            //console.log("Not Successful")
-        //}
-    //});
 
 
