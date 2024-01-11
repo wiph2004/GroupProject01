@@ -1,11 +1,12 @@
 //Youtube api link
-//https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=the%20hunt%20for%20red%20october&type=video&key=YOUR_API_KEY&videoType=movie&channelId=UCx8ultakVd3KEaLdliOcc9Q
+//https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=the%20hunt%20for%20red%20october&type=video&key=AIzaSyAcMm3fkVwE7lzrz_RxpYrVgltx__OS8T4&videoType=movie&channelId=UCx8ultakVd3KEaLdliOcc9Q
 
 //Wikipedia api link - requires some additional reading for all the rest of it
 //https://en.wikipedia.org/w/api.php
 
 //OMDB api link
 //http://www.omdbapi.com/?i=tt3896198&apikey=710f7abf
+
 
 
 
@@ -16,6 +17,15 @@ var previousSearches = $("#previous-searches");
 
 searchBtn.on("click", respondClick)
 
+var youTubeApi = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=&type=video&key=AIzaSyAcMm3fkVwE7lzrz_RxpYrVgltx__OS8T4&videoType=movie&channelId=UCx8ultakVd3KEaLdliOcc9Q";
+var wikiApi = "https://en.wikipedia.org/w/api.php";
+var omdbApi = "http://www.omdbapi.com/?i=tt3896198&apikey=710f7abf";
+
+
+//event listener for search button
+
+
+
 function respondClick() {
     // document.getElementById("#searchBar").value;
     // var newText = searchBar.value;
@@ -25,7 +35,7 @@ function respondClick() {
     }
 }
 
-
+//extract info from input 
 function extractContent(s, space) {
     var span = document.createElement('span');
     span.innerHTML = s;
@@ -104,6 +114,7 @@ window.onload = function recalSearch(){
     if (JSON.parse(localStorage.getItem("storedSearches") !== null)){
         createButton();
     }
+
 
 }
 
@@ -198,6 +209,24 @@ function createNewButton() {
 }}
 
 var searchBtn = document.querySelectorAll('#searchBtn');
+
+function getStoredSearches() {
+    var storedSearches = JSON.parse(localStorage.getItem("storedSearches")) || [];
+
+    //retrieve variables 
+    storedSearches.forEach(function(search) {
+        console.log("Movie:", search.movie);
+        console.log("Trailer:", search.trailer);
+        console.log("Movie Location:", search.movieLoc);
+        console.log("Score:", search.score);
+        console.log("Synopsis:", search.wikiSynopsis);
+        console.log("OMDB;", search.omdbSource);
+        console.log("Actor1:", search.actor1Source);
+        console.log("Actor2", search.actor2Source);
+    });
+}
+//call the stored searches 
+getStoredSearches();
 
 
 
