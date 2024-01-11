@@ -10,7 +10,7 @@
 
 
 
-var searchBtn = $('#searchBtn');
+var searchBtn = $('.searchBtn');
 var searchBar = document.querySelectorAll('#searchBar');
 var searchResults = document.querySelector("#searchBar").value;
 var previousSearches = $("#previous-searches");
@@ -30,8 +30,10 @@ function respondClick() {
     // document.getElementById("#searchBar").value;
     // var newText = searchBar.value;
     searchResults = document.querySelector("#searchBar").value;
+    console.log("HELLO?")
     if (searchResults !== null){
-    console.log(searchResults);
+        console.log(searchResults);
+        searchTrailer(searchResults);
     }
 }
 
@@ -119,10 +121,10 @@ window.onload = function recalSearch(){
 }
 
 
-function searchTrailer(event) {
-    event.preventDefault();
+function searchTrailer(query) {
+    // event.preventDefault();
 
-    var queryString = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=" + searchResults + "trailer&type=video&key=AIzaSyAcMm3fkVwE7lzrz_RxpYrVgltx__OS8T4 &videoType=movie";
+    var queryString = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=" + query + "trailer&type=video&key=AIzaSyAcMm3fkVwE7lzrz_RxpYrVgltx__OS8T4&videoType=movie";
 
     fetch(queryString)
         .then(function (response) {
@@ -133,9 +135,13 @@ function searchTrailer(event) {
         .then(function (data) {
             console.log(data);
 
-            var videoSource = data[0].id;
-            var source = "https://youtu.be/" + videoSource;
-            $("embed").src = source;
+            var videoSource = data?.items?.[0]?.id?.videoId;
+
+            if (videoSource) {
+                console.log("HAVE VIDEO SOURCE", videoSource);
+                var source = "https://youtu.be/" + videoSource;
+                $("#embed").attr('src', source);
+            }
         })
 }
 
