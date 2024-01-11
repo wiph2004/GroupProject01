@@ -155,6 +155,16 @@ function createButton(){
 
 
 function createButton() {
+    for (let x = 0; x < array.length; index++) {
+        if (storedSearches[x] === null) {
+            break;
+        }
+        var buttonName = storedSearches[x].movie;
+        var newButton = document.createElement("button").attr('name', buttonName);
+        newButton.textContent = buttonName;
+        previousSearches.appendChild(newButton);
+    }
+}
 
 function createNewButton() {
 
