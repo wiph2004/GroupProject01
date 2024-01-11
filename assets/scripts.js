@@ -151,7 +151,13 @@ function createButton(){
     }
 }
 
+
+
+
+function createButton() {
+
 function createNewButton() {
+
     if (JSON.parse(localStorage.getItem("storedSearches") !== null)) {
         storedSearches = JSON.parse(localStorage.getItem("storedSearches"));
         var movieObj = {
