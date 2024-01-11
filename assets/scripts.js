@@ -29,7 +29,7 @@ var omdbApi = "http://www.omdbapi.com/?i=tt3896198&apikey=710f7abf";
 function respondClick() {
     // document.getElementById("#searchBar").value;
     // var newText = searchBar.value;
-    titleSplash.style.display = "none"
+    titleSplash.style.display = "none";
     searchResults = document.querySelector("#searchBar").value;
     console.log("HELLO?")
     if (searchResults !== null){

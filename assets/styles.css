@@ -36,7 +36,7 @@ h1 {
 }
 
 .largeHuge {
-    font-size: 160px;
+    font-size: 10vw;
     color: var(--highlightColor);
     background-color: var(--darkColor);
     font-family: 'Monoton', sans-serif;
@@ -49,3 +49,5 @@ h1 {
     color: var(--lightColor);
     background-color: var(--darkColor);
 }
+
+/* Work on responsiveness */
