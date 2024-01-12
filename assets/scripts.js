@@ -140,7 +140,7 @@ function searchTrailer(query) {
 
             if (videoSource) {
                 console.log("HAVE VIDEO SOURCE", videoSource);
-                var source = "https://youtu.be/" + videoSource;
+                var source = "https://www.youtube.com/embed/" + videoSource;
                 $("#embed").attr('src', source);
             }
         })
