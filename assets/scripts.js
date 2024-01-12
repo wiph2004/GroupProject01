@@ -146,21 +146,6 @@ function searchTrailer(query) {
         })
 }
 
-function createButton(){
-    for (let x = 0; x < storedSearches.length; index++) {
-        if (storedSearches[x] === null) {
-            break;
-        }
-        var buttonName = storedSearches[x].movie;
-        var newButton = document.createElement("button").attr('name', buttonName);
-        newButton.textContent = buttonName;
-        previousSearches.appendChild(newButton);
-    }
-}
-
-
-
-
 function createButton() {
     for (let x = 0; x < array.length; index++) {
         if (storedSearches[x] === null) {
