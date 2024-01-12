@@ -46,6 +46,18 @@ h1 {
     margin: 2px;
 }
 
+#previous-searches button {
+    color: var(--darkColor);
+    border: solid 1px var(--hoverColor);
+    padding: 0 var(--standardPix);
+    margin: 2px;
+}
+
+#previous-searches button:hover {
+    border: solid 1px var(--darkColor);
+    background-color: var(--hoverColor);
+}
+
 .largeHuge {
     font-size: 10vw;
     color: var(--highlightColor);
