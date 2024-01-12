@@ -140,7 +140,7 @@ function searchTrailer(query) {
 
             if (videoSource) {
                 console.log("HAVE VIDEO SOURCE", videoSource);
-                var source = "https://youtu.be/" + videoSource;
+                var source = "https://www.youtube.com/embed/" + videoSource;
                 $("#embed").attr('src', source);
             }
         })
@@ -251,5 +251,29 @@ function getStoredSearches() {
 //call the stored searches 
 getStoredSearches();
 
+//potential wikipedia function 
+//function wikiPage(queryWiki) {
+    // event.preventDefault();
+
+    //var queryString = "https://en.wikipedia.org/w/api.php";
+
+    //fetch(queryStringWiki)
+        //.then(function (response) {
+            //if (response.ok) {
+                //return response.json();
+            //}
+        //})
+        //.then(function (data) {
+            //console.log(data);
+
+            //var videoSource = data?.items?.[0]?.id?.videoId;
+
+            //if (wikiSource) {
+                //console.log("HAVE VIDEO SOURCE", wikiSource);
+                //var source = "https://api.wikimedia.org/feed/v1/wikipedia/en/featured" + wikiSource;
+                //$("#embed").attr('src', source);
+            //}
+        //})
+//}
 
 
