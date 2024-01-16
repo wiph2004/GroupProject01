@@ -147,6 +147,7 @@ function createButtons() {
     }
 }
 
+
 var searchBtn = document.querySelectorAll('#searchBtn');
 
 $previousSearchButtonContainer.on("click", "button", usePreviousSearch);
