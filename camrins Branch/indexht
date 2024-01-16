@@ -1,0 +1,145 @@
+<!-- const movieSearchBox = document.getElementById('movie-search-box');
+const searchList=document.getElementById('search-list');
+const resultGrid=document.getElementById('result-grid');
+async function loadMovies(searchTerm){
+    const URL='http://omdbapi.com/?s=${searchTerm}&page=1&apikey=710f7abf';
+    const res=await fetch('${URL}');
+    const data=await res.json();
+    console.log(data);
+    if(data.Response="True")displayMovieList(data.Search);
+
+
+}
+function findMovies(){
+    let searchTerm = (movieSearchBox.value).trim();
+    if (searchTerm.length>0){
+        searchList.classList.remove('hide-search-list');
+    }else{
+        searchList.classList.add('hide-search-list');
+    }
+}
+function displayMovieList(movies){
+
+
+}
+ 
+
+const movieSearchBox = document.getElementById('movie-search-box');
+const searchList=document.getElementById('search-list');
+const resultGrid=document.getElementById('result-grid');
+async function loadMovies(searchTerm){
+    const URL='http://omdbapi.com/?s=${searchTerm}&page=1&apikey=710f7abf';
+    const res=await fetch('${URL}');
+    const data=await res.json();
+    console.log(data);
+    if(data.Response="True")displayMovieList(data.Search);
+
+
+}
+function findMovies(){
+    let searchTerm = (movieSearchBox.value).trim();
+    if (searchTerm.length>0){
+        searchList.classList.remove('hide-search-list');
+    }else{
+        searchList.classList.add('hide-search-list');
+    }
+}
+function displayMovieList(movies){
+
+
+}
+-->
+
+
+
+
+
+
+
+
+ <!-- did the index.html   
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="
+    https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css
+    " >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Monoton&family=Thasadith:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/styles.css">
+    <title>Whatcha Watchin</title>
+</head>
+<body>
+    <div class="wrapper">
+    <div class="logo">
+    <div class="container">
+    <p>Whatcha<span>Watching</span></p>  
+    </div>
+    </div>
+</div>
+    <div class="search-container">
+        <div class="search-element">
+            <h3>search Movie</h3>
+            <input type= "text" class="form-control"
+          placeholder="Search Movie Title ..."  
+          id="movie-search-box" onkeyup="findMovies()">
+         
+          <div class = "search-list" id="search-list">
+<div class="search-list-item">
+<div class="search-item-thumbnail">
+<img src="download.jpg">
+<div class="search-item-info">
+    <h3>SPIDER-MAN: ACROSS THE SPIDER-VERSE</h3>
+    <p>2017</p>
+    <div class="container">
+        <div class="result">
+            <div class="result-grid" id="result-grid">
+
+
+           
+            <div class="movie-poster">
+                <img src="download.jpg" alt="movie poster">
+                <div class="movie-info">
+                    <div class="movie-info">
+                        <h3 class="movie-title">SPIDER-MAN: ACROSS THE SPIDER-VERSE</h3>
+                        <ul class="movie-misc-info">
+                            <li class="year">Year:2023</li>
+                            <li class="rated">Ratings:PG-13</li>
+                            <li class="released">Released: 02 June 2023</li>
+
+
+                        </ul>
+                        <p class="writer"><b>Writer</b>Phil Lord, Chris Miller, David Callaham</p>
+                        <p class="actors"><b>Actors</b>Shameik Moore , Hailee Steinfeld , Jason Schwartzman , Jake Johnson</p>
+                        <p class="plot"><b>Plot:</b>Miles realizes that he is on Earth-42, the home of the spider that bit him, rather than his own dimension. In this world, his uncle Aaron Davis
+                            is alive while his father is dead; because Spider-Man does not exist, New York City is riddled with unchecked crime.</p>
+                        <p class="language"><b>Langauge;</b>
+                        English</p>
+                        <p class="awards"><b><i class="fasfa-award"></i></b> Common Sense Selection</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+         
+        </div>
+    </div>
+</div>
+</div>
+   
+   
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="./assets/scripts.js"></script>
+    <script src="./assets/api.js"></script>
+</body>
+</html>
+-->
