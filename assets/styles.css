@@ -3,10 +3,18 @@
     --highlightColor: #bd0000;
     --hoverColor: #808588;
     --lightColor: #fff;
+    --standardPix: 12px;
+    --borRadSm: 8px;
 }
 
 body {
     font-family: 'Thasadith', sans-serif;
+
+}
+
+header {
+    background-color: #808588;
+    border-radius: var(--standardPix);
 }
 
 h1 {
@@ -18,34 +26,55 @@ h1 {
 }
 
 .box {
-    border-radius: 12px;
+    border-radius: var(--standardPix);
+    display: flex;
 }
 
 #searchBar {
     border: solid 1px black;
-    padding: 0 12px;
-    border-radius: 8px;
+    padding: 0 var(--standardPix);
+    border-radius: var(--borRadSm);
+    margin: 2px;
 }
 
 .searchBtn {
     border: solid 1px black;
-    border-radius: 8px;
+    border-radius: var(--borRadSm);
     color: black;
     background-color: var(--lightColor);
-    padding: 0 12px;
+    padding: 0 var(--standardPix);
+    margin: 2px;
+}
+
+#previous-searches button {
+    color: var(--darkColor);
+    border: solid 1px var(--hoverColor);
+    padding: 0 var(--standardPix);
+    margin: 2px;
+    border-radius: var(--borRadSm);
+    width: 100%;
+}
+
+#previous-searches button:hover {
+    border: solid 1px var(--darkColor);
+    background-color: var(--hoverColor);
 }
 
 .largeHuge {
-    font-size: 160px;
+    font-size: 10vw;
     color: var(--highlightColor);
     background-color: var(--darkColor);
     font-family: 'Monoton', sans-serif;
     text-align: center;
-    border-radius: 12px;
-    padding: 10px;
+    border-radius: var(--standardPix);
+    padding: var(--standardPix);
 }
 
 .searchBtn:hover {
     color: var(--lightColor);
     background-color: var(--darkColor);
+}
+
+#embed {
+    margin: auto;
 }

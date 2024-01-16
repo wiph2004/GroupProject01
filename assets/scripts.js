@@ -224,7 +224,7 @@ function createNewButton(searchResults) {
             var buttonName = storedSearches[x].movie;
             var newButton = document.createElement("button");
             newButton.textContent = buttonName;
-            newButton.setAttribute('id', previousSearch);
+            newButton.setAttribute('id', previousSearch);                
             previousSearches.appendChild(newButton);
             console.log("New Button");
         }
