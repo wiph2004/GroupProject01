@@ -120,13 +120,8 @@ function beginSearch(event) {
     event.preventDefault();
     // document.getElementById("#searchBar").value;
     // var newText = searchBar.value;
-<<<<<<< HEAD
-    titleSplash.style.display = "none";
-    searchResults = document.querySelector("#searchBar").value;
-=======
     // titleSplash.style.display = "none"
     var searchQuery = document.querySelector("#searchBar").value;
->>>>>>> 90560d28e105367b91788a552d25bdc3120091b5
     console.log("HELLO?")
     if (searchQuery !== null) {
         console.log(searchQuery);
@@ -229,7 +224,7 @@ function createNewButton(searchResults) {
             var buttonName = storedSearches[x].movie;
             var newButton = document.createElement("button");
             newButton.textContent = buttonName;
-            newButton.setAttribute('id', previousSearch);
+            newButton.setAttribute('id', previousSearch);                
             previousSearches.appendChild(newButton);
             console.log("New Button");
         }
