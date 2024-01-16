@@ -14,70 +14,11 @@ var searchResults = document.querySelector("#searchBar").value;
 var previousSearches = document.querySelector("#previous-searches");
 var $previousSearchButtonContainer = $("#previous-searches");
 var previousSearch = $("#previousSearch");
+var isPreviousSearch = false;
 
 var youTubeApi = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=&type=video&key=AIzaSyAcMm3fkVwE7lzrz_RxpYrVgltx__OS8T4&videoType=movie&channelId=UCx8ultakVd3KEaLdliOcc9Q";
 var wikiApi = "https://en.wikipedia.org/w/api.php";
 var omdbApi = "http://www.omdbapi.com/?i=tt3896198&apikey=710f7abf";
-
-// var storedSearches = [
-//     {
-//         movie: " ",
-//         trailer: "",
-//         movieLoc: "",
-//         wiki: "",
-//             score: "",
-//             synopsis: "",
-//         OMDB: "",
-//             actor1: "",
-//             actor2: ""
-//     },
-//     {
-//         movie: " ",
-//         trailer: "",
-//         movieLoc: "",
-//         wiki: "",
-//             score: "",
-//             synopsis: "",
-//         OMDB: "",
-//             actor1: "",
-//             actor2: ""
-//     },
-//     {
-//         movie: " ",
-//         trailer: "",
-//         movieLoc: "",
-//         wiki: "",
-//             score: "",
-//             synopsis: "",
-//         OMDB: "",
-//             actor1: "",
-//             actor2: ""
-//     },
-//     {
-//         movie: " ",
-//         trailer: "",
-//         movieLoc: "",
-//         wiki: "",
-//             score: "",
-//             synopsis: "",
-//         OMDB: "",
-//             actor1: "",
-//             actor2: ""
-//     },
-//     {
-//         movie: " ",
-//         trailer: "",
-//         movieLoc: "",
-//         wiki: "",
-//             score: "",
-//             synopsis: "",
-//         OMDB: "",
-//             actor1: "",
-//             actor2: ""
-//     },
-
-// ];
-
 
 // onload:
 // - get local storage saved searches
@@ -113,14 +54,10 @@ window.onload = function recalSearch() {
 
 searchForm.on("submit", beginSearch);
 
-//event listener for search button
-// searchBtn.on("click", respondClick)
-
 function beginSearch(event) {
     event.preventDefault();
-    // document.getElementById("#searchBar").value;
-    // var newText = searchBar.value;
-    // titleSplash.style.display = "none"
+    isPreviousSearch = false;
+
     var searchQuery = document.querySelector("#searchBar").value;
     console.log("HELLO?")
     if (searchQuery !== null) {
@@ -148,6 +85,21 @@ function extractContent(s, space) {
 function searchTrailer(query) {
     titleSplash.style.display = "none";
     // event.preventDefault();
+    // var wikiUrl = "https://en.wikipedia.org/w/api.php?action=query&origin=*&format=json&prop=revision&formatversion=2&rvprop=content&rvslots=*&generator=search&gsrnamespace=0&gsrlimit=5&gsrsearch='" + query + "'";
+    //  var wikiUrl = "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&titles=" + query + "&formatversion=2&rvprop=content&rvslots=*"
+    // var xhr = new XMLHttpRequest();
+    // xhr.open('GET', wikiUrl, true);
+    // xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
+    // xhr.onload = function() {
+    //     var data = JSON.parse(this.response);
+    //     console.log(data);
+    //     console.log(data.query.pages);
+    //     for (var pageId in data.query.pages) {
+    //         console.log(data.query.pages[pageId].title);
+    //     }
+    // };
+    // xhr.send();
+
 
     var queryString = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=" + query + "trailer&type=video&key=AIzaSyAcMm3fkVwE7lzrz_RxpYrVgltx__OS8T4&videoType=movie";
 
@@ -173,9 +125,11 @@ function searchTrailer(query) {
             // repopulate the array for searches
             getStoredSearches();
             // create buttons
-            createButtons();
-        })
-    // createNewButton(searchResults);
+            if (isPreviousSearch === false) {
+                createButtons();
+            }
+ })
+    
 }
 
 function createButtons() {
@@ -193,98 +147,13 @@ function createButtons() {
     }
 }
 
-function createNewButton(searchResults) {
-
-    for (let index = 0; index < storedSearches.length; index++) {
-        $("#previousSearch").remove();
-        // var element = document.getElementById("#previousSearch");
-        // element.parentNode.removeChild(element);
-    }
-    console.log("Results: " + searchResults);
-    if (JSON.parse(localStorage.getItem("storedSearches") !== null)) {
-        storedSearches = JSON.parse(localStorage.getItem("storedSearches"));
-        var movieObj = {
-            movie: searchResults,
-            // trailer: source,
-            // movieLoc: movieSource,
-            // wiki: wikiSource,
-            // score: score,
-            // synopsis: wikiSynopsis,
-            // OMDB: omdbSource,
-            // actor1: actor1Source,
-            // actor2: actor2Source,
-        }
-
-        storedSearches.splice(0, 0, movieObj);
-
-        for (let x = 0; x < storedSearches.length; x++) {
-            if (storedSearches[x] === null) {
-                break;
-            }
-            var buttonName = storedSearches[x].movie;
-            var newButton = document.createElement("button");
-            newButton.textContent = buttonName;
-            newButton.setAttribute('id', previousSearch);
-            previousSearches.appendChild(newButton);
-            console.log("New Button");
-        }
-
-    } else {
-
-        var movieObj = {
-            movie: searchResults,
-            // trailer: source,
-            // movieLoc: movieSource,
-            // wiki: wikiSource,
-            // score: score,
-            // synopsis: wikiSynopsis,
-            // OMDB: omdbSource,
-            // actor1: actor1Source,
-            // actor2: actor2Source,
-        }
-
-        storedSearches.splice(0, 0, movieObj);
-
-        for (let x = 0; x < storedSearches.length; x++) {
-            if (storedSearches[x] === null) {
-                break;
-            }
-            var buttonName = storedSearches[x].movie;
-            var newButton = document.createElement("button");
-            newButton.textContent = buttonName;
-            newButton.setAttribute('id', previousSearch);
-            previousSearches.appendChild(newButton);
-            console.log("Other New buttons");
-        }
-        localStorage.setItem("storedSearches", JSON.stringify(storedSearches));
-    }
-}
-
 var searchBtn = document.querySelectorAll('#searchBtn');
-
-function getStoredSearchesOne() {
-    var storedSearches = JSON.parse(localStorage.getItem("storedSearches")) || [];
-
-    //retrieve variables 
-    storedSearches.forEach(function (search) {
-        console.log("Movie:", search.movie);
-        console.log("Trailer:", search.trailer);
-        console.log("Movie Location:", search.movieLoc);
-        console.log("Score:", search.score);
-        console.log("Synopsis:", search.wikiSynopsis);
-        console.log("OMDB;", search.omdbSource);
-        console.log("Actor1:", search.actor1Source);
-        console.log("Actor2", search.actor2Source);
-    });
-    createNewButton();
-}
-//call the stored searches 
-// getStoredSearches();
 
 $previousSearchButtonContainer.on("click", "button", usePreviousSearch);
 //use a button to redo a search
 function usePreviousSearch(event) {
     var newSearch = event.target.textContent;
+    isPreviousSearch = true;
     console.log(newSearch);
     searchTrailer(newSearch);
 }
