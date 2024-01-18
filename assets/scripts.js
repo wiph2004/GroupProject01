@@ -86,7 +86,7 @@ function extractContent(s, space) {
 function searchTrailer(query) {
     titleSplash.style.display = "none";
     
-    const URL="http://omdbapi.com/?t=" + query +"&page=1&apikey=710f7abf";
+    const URL="https://omdbapi.com/?t=" + query +"&page=1&apikey=710f7abf";
 
     fetch(URL)
     .then(function (response) {
