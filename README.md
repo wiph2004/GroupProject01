@@ -6,12 +6,15 @@ Watcha Watching
     
     - What was your motivation?
      My motivation to complete this was to take on a challenge and prove to myself i could complete it.
+     
     - Why did you build this project? 
     
     To prove to myself i could be given a task and complete it to the best of my ability to make it presentable and usable.
+    
     - What problem does it solve?
     
     It solves thw problem of searching for movies while give you a trailer, information about the movie for example;Actor,Plot,Rating,etc.
+    
     - What did you learn?
     
     I learned how to me given a task and work with others to share our abilities, give eachother roles and tackle the challenge of making a movie website.
