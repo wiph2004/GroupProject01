@@ -32,6 +32,8 @@ Watcha Watching
     ## Usage
     
     Provide instructions and examples for use. Include screenshots as needed.
+    https://wiph2004.github.io/GroupProject01/
+    
     
     You use the search bar to search up a movie you will be given a trailer from youtube, 
     A description about the movie from OMDB while rotten tomato gives you a rating to let you know if it is worth watching.
