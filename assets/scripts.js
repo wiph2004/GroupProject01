@@ -108,8 +108,7 @@ function searchTrailer(query) {
         var actors = data.Actors;
         console.log(movieTitle, plot, rating01)
         var pEl = document.createElement("p");
-        pEl.textContent = (actors+" " +plot +" "+ rating01);
-        
+        pEl.textContent = (movieTitle + ". Starring: " + actors + ". " + plot + " IMDb Rating: "+ rating01 + ".");
         movieInfo.appendChild(pEl);
     })
 
