@@ -13,6 +13,7 @@ var searchBar = document.querySelectorAll('#searchBar');
 var searchResults = document.querySelector("#searchBar").value;
 var previousSearches = document.querySelector("#previous-searches");
 var $previousSearchButtonContainer = $("#previous-searches");
+var movieInfo = document.querySelector("#movie-info");
 var previousSearch = $("#previousSearch");
 var isPreviousSearch = false;
 
@@ -84,22 +85,33 @@ function extractContent(s, space) {
 
 function searchTrailer(query) {
     titleSplash.style.display = "none";
-    // event.preventDefault();
-    // var wikiUrl = "https://en.wikipedia.org/w/api.php?action=query&origin=*&format=json&prop=revision&formatversion=2&rvprop=content&rvslots=*&generator=search&gsrnamespace=0&gsrlimit=5&gsrsearch='" + query + "'";
-    //  var wikiUrl = "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&titles=" + query + "&formatversion=2&rvprop=content&rvslots=*"
-    // var xhr = new XMLHttpRequest();
-    // xhr.open('GET', wikiUrl, true);
-    // xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
-    // xhr.onload = function() {
-    //     var data = JSON.parse(this.response);
-    //     console.log(data);
-    //     console.log(data.query.pages);
-    //     for (var pageId in data.query.pages) {
-    //         console.log(data.query.pages[pageId].title);
-    //     }
-    // };
-    // xhr.send();
+    
+    const URL="http://omdbapi.com/?t=" + query +"&page=1&apikey=710f7abf";
 
+    fetch(URL)
+    .then(function (response) {
+        if (response.ok) {
+            return response.json();
+        }
+    })
+    .then(function (data) {
+        console.log(data);
+        movieInfo.textContent = "";
+        var movieTitle = data.Title;
+        var plot = data.Plot;
+        var rating01 = data.Ratings[0].Value;
+        var rating02 = data.Ratings[1].Value;
+        var rating03 = data.Ratings[2].Value;
+        var poster = data.Poster;
+        var runtime = data.Runtime;
+        var releaseDate = data.Released;
+        var actors = data.Actors;
+        console.log(movieTitle, plot, rating01)
+        var pEl = document.createElement("p");
+        pEl.textContent = (actors+" " +plot +" "+ rating01);
+        
+        movieInfo.appendChild(pEl);
+    })
 
     var queryString = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=" + query + "trailer&type=video&key=AIzaSyAcMm3fkVwE7lzrz_RxpYrVgltx__OS8T4&videoType=movie";
 
