@@ -9,10 +9,11 @@
 
 body {
     font-family: 'Thasadith', sans-serif;
+    background: linear-gradient(white, black);
+
 }
 
 header {
-    background-color: #808588;
     border-radius: var(--standardPix);
 }
 
@@ -37,6 +38,7 @@ p::selection {
 
 .box {
     border-radius: var(--standardPix);
+    margin: var(--borRadSm);
 }
 
 #searchBar {
@@ -85,7 +87,12 @@ p::selection {
     background-color: var(--darkColor);
 }
 
-.movie-container {
+#movie-container,
+#movie-info {
+    display: none;
+}
+
+#movie-container {
     position: relative;
     overflow: hidden;
     width: 100%;
