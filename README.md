@@ -22,6 +22,8 @@ Watcha Watching
     
     Provide instructions and examples for use. Include screenshots as needed.
     https://wiph2004.github.io/GroupProject01/
+    ![image](https://github.com/wiph2004/GroupProject01/assets/149805523/8a3583ff-e71b-4894-9277-64b38ab87972)
+
     
     
     You use the search bar to search up a movie you will be given a trailer from youtube, 
