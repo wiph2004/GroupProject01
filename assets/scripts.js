@@ -1,12 +1,3 @@
-//Youtube api link
-//https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=the%20hunt%20for%20red%20october&type=video&key=AIzaSyAcMm3fkVwE7lzrz_RxpYrVgltx__OS8T4&videoType=movie&channelId=UCx8ultakVd3KEaLdliOcc9Q
-
-//Wikipedia api link - requires some additional reading for all the rest of it
-//https://en.wikipedia.org/w/api.php
-
-//OMDB api link
-//http://www.omdbapi.com/?i=tt3896198&apikey=710f7abf
-
 var searchBtn = $('.searchBtn');
 var searchForm = $('#searchForm');
 var searchBar = document.querySelectorAll('#searchBar');
@@ -22,17 +13,6 @@ var movieInfo = document.getElementById("movie-info");
 var youTubeApi = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=&type=video&key=AIzaSyAcMm3fkVwE7lzrz_RxpYrVgltx__OS8T4&videoType=movie&channelId=UCx8ultakVd3KEaLdliOcc9Q";
 var wikiApi = "https://en.wikipedia.org/w/api.php";
 var omdbApi = "http://www.omdbapi.com/?i=tt3896198&apikey=710f7abf";
-
-// onload:
-// - get local storage saved searches
-// - render buttons for each previous search
-
-// on submit of search form:
-// - add latest search to end of previous searches in local storage
-// - get local storage saved searches
-// - render buttons for each previous search
-// - send fetch to API
-// - render movie trailer
 
 var storedSearches = null;
 
@@ -71,28 +51,12 @@ function beginSearch(event) {
     }
 }
 
-//extract info from input 
-function extractContent(s, space) {
-    var span = document.createElement('span');
-    span.innerHTML = s;
-    if (space) {
-        var children = span.querySelectorAll('*');
-        for (var i = 0; i < children.length; i++) {
-            if (children[i].textContent)
-                children[i].textContent += ' ';
-            else
-                children[i].innerText += ' ';
-        }
-    }
-    return [span.textContent || span.innerText].toString().replace(/ +/g, ' ');
-};
-
 function searchTrailer(query) {
     titleSplash.style.display = "none";
     movieContainer.style.display = "block";
     movieInfo.style.display = "block";
-
-    const URL="http://omdbapi.com/?t=" + query +"&page=1&apikey=710f7abf";
+    
+    const URL="https://omdbapi.com/?t=" + query +"&page=1&apikey=710f7abf";
 
     fetch(URL)
     .then(function (response) {
@@ -187,31 +151,4 @@ function usePreviousSearch(event) {
     console.log(newSearch);
     searchTrailer(newSearch);
 }
-
-
-//potential wikipedia function 
-//function wikiPage(queryWiki) {
-// event.preventDefault();
-
-//var queryString = "https://en.wikipedia.org/w/api.php";
-
-//fetch(queryStringWiki)
-//.then(function (response) {
-//if (response.ok) {
-//return response.json();
-//}
-//})
-//.then(function (data) {
-//console.log(data);
-
-//var videoSource = data?.items?.[0]?.id?.videoId;
-
-//if (wikiSource) {
-//console.log("HAVE VIDEO SOURCE", wikiSource);
-//var source = "https://api.wikimedia.org/feed/v1/wikipedia/en/featured" + wikiSource;
-//$("#embed").attr('src', source);
-//}
-//})
-//}
-
 
