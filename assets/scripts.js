@@ -16,6 +16,8 @@ var $previousSearchButtonContainer = $("#previous-searches");
 var movieInfo = document.querySelector("#movie-info");
 var previousSearch = $("#previousSearch");
 var isPreviousSearch = false;
+var movieContainer = document.getElementById("movie-container");
+var movieInfo = document.getElementById("movie-info");
 
 var youTubeApi = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=&type=video&key=AIzaSyAcMm3fkVwE7lzrz_RxpYrVgltx__OS8T4&videoType=movie&channelId=UCx8ultakVd3KEaLdliOcc9Q";
 var wikiApi = "https://en.wikipedia.org/w/api.php";
@@ -58,6 +60,8 @@ searchForm.on("submit", beginSearch);
 function beginSearch(event) {
     event.preventDefault();
     isPreviousSearch = false;
+    movieContainer.style.display = "block";
+    movieInfo.style.display = "block";
 
     var searchQuery = document.querySelector("#searchBar").value;
     console.log("HELLO?")
@@ -85,7 +89,9 @@ function extractContent(s, space) {
 
 function searchTrailer(query) {
     titleSplash.style.display = "none";
-    
+    movieContainer.style.display = "block";
+    movieInfo.style.display = "block";
+
     const URL="http://omdbapi.com/?t=" + query +"&page=1&apikey=710f7abf";
 
     fetch(URL)
@@ -106,10 +112,22 @@ function searchTrailer(query) {
         var runtime = data.Runtime;
         var releaseDate = data.Released;
         var actors = data.Actors;
-        console.log(movieTitle, plot, rating01)
-        var pEl = document.createElement("p");
-        pEl.textContent = (movieTitle + ". Starring: " + actors + ". " + plot + " IMDb Rating: "+ rating01 + ".");
-        movieInfo.appendChild(pEl);
+        console.log(movieTitle, plot, rating01);
+        // var pEl = document.createElement("p");
+        // pEl.textContent = (movieTitle + "/Runtime: " + runtime + ". Starring: " + actors + ". " + plot + " IMDb Rating: "+ rating01 + ".");
+        // movieInfo.appendChild(pEl);
+        var titleRuntimePEl = document.createElement("p");
+        var starringPEl = document.createElement("p");
+        var synopsisPEl = document.createElement("p");
+        var ratingPEl = document.createElement("p");
+        titleRuntimePEl.textContent = (movieTitle + "/Runtime: " + runtime);
+        starringPEl.textContent = ("Starring: " + actors + ".");
+        synopsisPEl.textContent = (plot);
+        ratingPEl.textContent = ("IMDb Rating: " + rating01);
+        movieInfo.appendChild(titleRuntimePEl);
+        movieInfo.appendChild(starringPEl);
+        movieInfo.appendChild(synopsisPEl);
+        movieInfo.appendChild(ratingPEl);
     })
 
     var queryString = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=" + query + "trailer&type=video&key=AIzaSyAcMm3fkVwE7lzrz_RxpYrVgltx__OS8T4&videoType=movie";
